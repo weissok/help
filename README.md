@@ -3,7 +3,7 @@
 [![N|Solid](https://portal.tpu.ru/f_lyceum/img/main-logo.jpg)](https://portal.tpu.ru/lyceum)
 
 
-## Features
+## Состав
 
-- python_pascal_trans.py
+- python_pascal_trans.py (аналоги команд Паскаля в Питоне)
 - ...
