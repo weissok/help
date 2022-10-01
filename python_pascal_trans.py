@@ -6,3 +6,5 @@ float(input()) # аналог команды readln дробного числа
 str(input()) # аналог команды readln строки
 while a>0:          #      repeat:
    print() # аналог команды   until
+for i in range (1, 20):
+   print("hell")        #20 раз вы увидите слово ад на английском
