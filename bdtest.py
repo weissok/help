@@ -71,5 +71,5 @@ orders = [
 cur.executemany("INSERT INTO users VALUES(?, ?, ?, ?);", customers)
 cur.executemany("INSERT INTO orders VALUES(?, ?, ?, ?);", orders)
 conn.commit()
-cur.execute("select * from users where lname='Parker'")
+cur.execute("SELECT * FROM users WHERE lname='Parker'")
 print(cur.fetchall())
