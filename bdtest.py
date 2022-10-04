@@ -78,3 +78,4 @@ def sql():
 
 conn = sqlite3.connect('orders.db')
 cur = conn.cursor()
+sql()
