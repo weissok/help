@@ -1,5 +1,4 @@
-import math
-import turtle
+
 
 sum=0
 l=[x for x in range(10)]
@@ -10,7 +9,10 @@ print(ls)
 
 for x in range (len(ls)):
     print(ls[x],end=' ')
-print()
+    sum+=int(ls[x])
+print(f'\nsum={sum}')
+
+print('='*20)
 
 la=[x for x in 'abcdefg']
 print(la)
