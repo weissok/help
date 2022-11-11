@@ -1,5 +1,3 @@
-
-
 sum=0
 l=[x for x in range(10)]
 print(l)
