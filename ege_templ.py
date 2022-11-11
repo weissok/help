@@ -52,4 +52,13 @@ print(st[2:len(st)-2],'\n')
 
 for i in range(10):
     print(bin(i)[2:], bin(i)[1], int(bin(i)[2:],2))
-
+    
+s=[]
+print(s)
+for x in range(3):
+    for y in range(3):
+        s.append(str(x)+' '+str(y))
+print(s)
+for i in range(len(s)):
+    s[i]=s[i].split()
+print(s)
