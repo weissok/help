@@ -1,22 +1,195 @@
-s1='1. Кодирование информации'
-s2='2. Кодирование изображения'
-s3='3. Кодирование звука'
+def f0():
+    
+    import math
+
+    def menu11_resh(I,K,i,N,sel):
+
+        otvet=0
+        if sel==1:
+            
+            if K>0 and i>0:
+                I=K*i
+                form='I= K * i'
+            elif K>0 and N>0:
+                I=K*math.log2(N)
+                form='I= K * log2(N)'
+            otvet=I
+            ed_izm='бит'
+
+        if sel==2:
+            if I>0 and i>0:
+                K=I/i
+                form='K=I/i'
+            elif I>0 and N>0:
+                K=I/math.log2(N)
+                form='K=I/log2(N)'
+            otvet=K
+            ed_izm='символов'
+
+        if sel==3:
+            if I>0 and K>0:
+                i=I/K
+                form='i=I/K'
+            elif N>0:
+                i=math.log2(N)
+                form='i=log2(N)'
+            otvet=i
+            ed_izm='бит'
 
 
-s0='Нужно найти- '
-s00='Известно- '
-s000='Ваш выбор: '
+        if sel==4:
+            if I>0 and K>0:
+                N=2**(I/K)
+                form='N=2^(I/K)'
+            elif i>0:
+                N=2**i
+                form='N=2^i'
+            otvet=N
+            ed_izm='символов'
 
-I='I'
-i='i'
-K='K'
-N='N'
-n='n'
 
-t='t'
-H='H'
+        print(f'\nОтвет: {form}={otvet} {ed_izm}\nЗадача решена. Хотите решить еще одну? Для этого нажмите 1')
+        if input('Ваш выбор-')=='1':
+            f0()
+        else:
+            print('выход')
+            exit()
+        
+    def menu21_resh(V,p,i,sel):
+        print(V,p,i,sel)
+        otvet=0
+        if sel==1:
+            if p>0 and i>0:
+                V=p*i
+                form='V= p * i'
+            elif K>0 and N>0:
+                I=K*math.log2(N)
+                form='I= K * log2(N)'
+            otvet=V
+            ed_izm='бит'
 
-print(s1)
-print(s2)
-print(s3)
-in1=int(input(s000))
+        if sel==2:
+            if V>0 and i>0:
+                p=V/N
+                form='p= V / i'
+            elif K>0 and N>0:
+                I=K*math.log2(N)
+                form='I= K * log2(N)'
+            otvet=p
+            ed_izm='бит'
+
+        if sel==3:
+            if p>0 and V>0:
+                i=V/p
+                form='i= V / p'
+            elif K>0 and N>0:
+                I=K*math.log2(N)
+                form='I= K * log2(N)'
+            otvet=i
+            ed_izm='бит'
+
+        ed_izm='бит'
+        print(f'\nОтвет: {form}={otvet} {ed_izm}\nЗадача решена. Хотите решить еще одну? Для этого нажмите 1')
+
+    def menu31_resh(I,H,i,t,sel):
+        
+        otvet=20
+        ed_izm='бит'
+        print(f'\nОтвет: {form}={otvet} {ed_izm}\nЗадача решена. Хотите решить еще одну? Для этого нажмите 1')
+
+    def menu11(m1,m2,m3,m4,select,sel):
+        sel2=0
+        m5='Закончить ввод данных'
+        if sel==1 or sel==3:
+            menu=[m1,m2,m3,m4,m5]
+        if sel==2:
+            menu=[m1,m2,m3,m5]
+        print(sel, menu)
+        I=K=i=N=H=t=p=V=-1
+
+        if sel==1 or sel==3:  crit=5
+        elif sel==2: crit=4
+            
+        while sel2!=crit:
+            print('\nВыберите, что вам известно (если вы ошибетесь с вводом данных, можно будет ввести их заново)\n')
+            
+            for n in range(crit):
+                if n!=select-1: print (f'{n+1}. {menu[n]}')
+                else: print(f'{n+1}. Пункт активирован')
+
+            sel2=int(input('Ваш выбор-'))
+            if sel==1: velich=['I=','K=','i=','N=']
+            if sel==2: velich=['V=','p=','i=']
+            if sel==3: velich=['I=','H=','i=','t=']
+            txt='Введите значение '
+            
+            n=0
+            if sel2!=select and sel==1:
+                if sel2==n+1:I=int(input(f'{txt} {velich[n]}'))
+                if sel2==n+2:K=int(input(f'{txt} {velich[n+1]}'))
+                if sel2==n+3:i=int(input(f'{txt} {velich[n+2]}'))
+                if sel2==n+4:N=int(input(f'{txt} {velich[n+3]}'))
+                if sel2==n+5:menu11_resh(I,K,i,N,select)
+            
+            elif sel2!=select and sel==2:
+                if sel2==n+1:V=int(input(f'{txt} {velich[n]}'))
+                if sel2==n+2:p=int(input(f'{txt} {velich[n+1]}'))
+                if sel2==n+3:i=int(input(f'{txt} {velich[n+2]}'))
+                if sel2==n+4:menu21_resh(V,p,i,select)
+            
+            elif sel2!=select and sel==3:
+                if sel2==n+1:I=int(input(f'{txt} {velich[n]}'))
+                if sel2==n+2:H=int(input(f'{txt} {velich[n+1]}'))
+                if sel2==n+3:i=int(input(f'{txt} {velich[n+2]}'))
+                if sel2==n+4:t=int(input(f'{txt} {velich[n+3]}'))
+                if sel2==n+5:menu11_resh(I,H,i,t,select)
+            elif sel2==select:
+                print('Этот пункт уже активирован!')
+                input('Нажмите любую клавишу')
+                     
+    def menu1():
+        print(text)
+        if sel==1:
+            m1='I - информационный объем сообщения'
+            m2='K - количество символов'
+            m3='i - информационный вес символа'
+            m4='N - мощность алфавита'
+        
+        if sel==2:
+            m1='V - информационный объем изображения'
+            m2='p (x,y) - количество пикселей'
+            m3='i - информационный вес цвета (разрядность)'
+            m4=''
+        if sel==3:
+            m1='I - информационный объем звукового файла'
+            m2='H - частота дискретизации'
+            m3='i - битовая губина кодирования'
+            m4='t - время звучания'
+
+        print(f'''
+    1. {m1}
+    2. {m2}
+    3. {m3}''',end=' ')
+        
+        if sel==1 or sel==3:
+            print(f'''
+    4. {m4}''')
+
+        select=int(input(f'\n{vibor}'))
+        print(f'Вы выбрали {select}')
+        menu11(m1,m2,m3,m4,select,sel)
+
+    # Заготовки и настрокйки
+    text='\nВыберите, что вам нужно найти'
+    vibor='Ваш выбор-'
+    otv='\nОтвет: {form}={otvet} {ed_izm}\nЗадача решена. Хотите решить еще одну? Для этого нажмите 1'
+    m1=m2=m3=m4=''
+    select1=['I','K','i','N']
+    I=K=i=N=-1
+    
+    # Старт
+    print('1. Кодирование информации\n2. Кодирование изображения\n3. Кодирование аудио')
+    sel=int(input('Ваш выбор-'))
+    menu1()
+
+f0()
