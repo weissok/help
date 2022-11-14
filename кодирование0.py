@@ -87,14 +87,35 @@ def f0():
                 form='I= K * log2(N)'
             otvet=i
             ed_izm='бит'
-
-        ed_izm='бит'
+            
         print(f'\nОтвет: {form}={otvet} {ed_izm}\nЗадача решена. Хотите решить еще одну? Для этого нажмите 1')
 
-    def menu31_resh(I,H,i,t,sel):
+    def menu31_resh(I,H,b,t,sel):
+        if sel==1:
+            if H>0 and b>0 and t>0:
+                I=H*b*t
+                form='I=H*b*t'
+            otvet=I
+            ed_izm='бит'
+        if sel==2:
+            if I>0 and b>0 and t>0:
+                H=I/b*t
+                form='H=I/b*t'
+            otvet=H
+            ed_izm='Герц'
+        if sel==3:
+            if I>0 and H>0 and t>0:
+                b=I/H*t
+                form='b=I/H*t'
+            otvet=b
+            ed_izm='бит'
+        if sel==4:
+            if I>0 and H>0 and b>0:
+                t=I/H*b
+                form='t=I/H*b'
+            otvet=t
+            ed_izm='с'
         
-        otvet=20
-        ed_izm='бит'
         print(f'\nОтвет: {form}={otvet} {ed_izm}\nЗадача решена. Хотите решить еще одну? Для этого нажмите 1')
 
     def menu11(m1,m2,m3,m4,select,sel):
@@ -120,7 +141,7 @@ def f0():
             sel2=int(input('Ваш выбор-'))
             if sel==1: velich=['I=','K=','i=','N=']
             if sel==2: velich=['V=','p=','i=']
-            if sel==3: velich=['I=','H=','i=','t=']
+            if sel==3: velich=['I=','H=','b=','t=']
             txt='Введите значение '
             
             n=0
@@ -140,9 +161,9 @@ def f0():
             elif sel2!=select and sel==3:
                 if sel2==n+1:I=int(input(f'{txt} {velich[n]}'))
                 if sel2==n+2:H=int(input(f'{txt} {velich[n+1]}'))
-                if sel2==n+3:i=int(input(f'{txt} {velich[n+2]}'))
+                if sel2==n+3:b=int(input(f'{txt} {velich[n+2]}'))
                 if sel2==n+4:t=int(input(f'{txt} {velich[n+3]}'))
-                if sel2==n+5:menu11_resh(I,H,i,t,select)
+                if sel2==n+5:menu11_resh(I,H,b,t,select)
             elif sel2==select:
                 print('Этот пункт уже активирован!')
                 input('Нажмите любую клавишу')
@@ -163,7 +184,7 @@ def f0():
         if sel==3:
             m1='I - информационный объем звукового файла'
             m2='H - частота дискретизации'
-            m3='i - битовая губина кодирования'
+            m3='b - битовая губина кодирования или разрядность квантования'
             m4='t - время звучания'
 
         print(f'''
