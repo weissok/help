@@ -55,60 +55,64 @@ def f0():
             print('выход')
             exit()
         
-    def menu21_resh(V,p,i,sel):
+    def menu21_resh(V,p,i,N,sel):
         print(V,p,i,sel)
         otvet=0
         if sel==1:
             if p>0 and i>0:
                 V=p*i
                 form='V= p * i'
-            elif K>0 and N>0:
-                I=K*math.log2(N)
-                form='I= K * log2(N)'
+            elif p>0 and N>0:
+                V=p*math.log2(N)
+                form='V= p * log2(N)'
             otvet=V
             ed_izm='бит'
 
         if sel==2:
             if V>0 and i>0:
-                p=V/N
+                p=V/i
                 form='p= V / i'
-            elif K>0 and N>0:
-                I=K*math.log2(N)
-                form='I= K * log2(N)'
+            elif V>0 and N>0:
+                p=V/math.log2(N)
+                form='p= V/ log2(N)'
             otvet=p
-            ed_izm='бит'
+            ed_izm='пикселей'
 
         if sel==3:
             if p>0 and V>0:
                 i=V/p
                 form='i= V / p'
-            elif K>0 and N>0:
-                I=K*math.log2(N)
-                form='I= K * log2(N)'
+            elif N>0:
+                i=math.log2(N)
+                form='i=log2(N)'
             otvet=i
             ed_izm='бит'
             
         print(f'\nОтвет: {form}={otvet} {ed_izm}\nЗадача решена. Хотите решить еще одну? Для этого нажмите 1')
 
     def menu31_resh(I,H,b,t,sel):
+        otvet=0
         if sel==1:
             if H>0 and b>0 and t>0:
                 I=H*b*t
                 form='I=H*b*t'
             otvet=I
             ed_izm='бит'
+
         if sel==2:
             if I>0 and b>0 and t>0:
                 H=I/b*t
                 form='H=I/b*t'
             otvet=H
             ed_izm='Герц'
+
         if sel==3:
             if I>0 and H>0 and t>0:
                 b=I/H*t
                 form='b=I/H*t'
             otvet=b
             ed_izm='бит'
+
         if sel==4:
             if I>0 and H>0 and b>0:
                 t=I/H*b
@@ -121,12 +125,9 @@ def f0():
     def menu11(m1,m2,m3,m4,select,sel):
         sel2=0
         m5='Закончить ввод данных'
-        if sel==1 or sel==3:
-            menu=[m1,m2,m3,m4,m5]
-        if sel==2:
-            menu=[m1,m2,m3,m5]
+        menu=[m1,m2,m3,m4,m5]
         print(sel, menu)
-        I=K=i=N=H=t=p=V=-1
+        I=K=i=N=H=t=p=V=b=-1
 
         if sel==1 or sel==3:  crit=5
         elif sel==2: crit=4
@@ -140,7 +141,7 @@ def f0():
 
             sel2=int(input('Ваш выбор-'))
             if sel==1: velich=['I=','K=','i=','N=']
-            if sel==2: velich=['V=','p=','i=']
+            if sel==2: velich=['V=','p=','i=','N=']
             if sel==3: velich=['I=','H=','b=','t=']
             txt='Введите значение '
             
@@ -156,7 +157,8 @@ def f0():
                 if sel2==n+1:V=int(input(f'{txt} {velich[n]}'))
                 if sel2==n+2:p=int(input(f'{txt} {velich[n+1]}'))
                 if sel2==n+3:i=int(input(f'{txt} {velich[n+2]}'))
-                if sel2==n+4:menu21_resh(V,p,i,select)
+                if sel2==n+4:N=int(input(f'{txt} {velich[n+3]}'))
+                if sel2==n+5:menu21_resh(V,p,i,N,select)
             
             elif sel2!=select and sel==3:
                 if sel2==n+1:I=int(input(f'{txt} {velich[n]}'))
@@ -180,7 +182,8 @@ def f0():
             m1='V - информационный объем изображения'
             m2='p (x,y) - количество пикселей'
             m3='i - информационный вес цвета (разрядность)'
-            m4=''
+            m4='N - количество цветов в палитре'
+        
         if sel==3:
             m1='I - информационный объем звукового файла'
             m2='H - частота дискретизации'
@@ -190,12 +193,9 @@ def f0():
         print(f'''
     1. {m1}
     2. {m2}
-    3. {m3}''',end=' ')
+    3. {m3}
+    4. {m4}''',end=' ')
         
-        if sel==1 or sel==3:
-            print(f'''
-    4. {m4}''')
-
         select=int(input(f'\n{vibor}'))
         print(f'Вы выбрали {select}')
         menu11(m1,m2,m3,m4,select,sel)
