@@ -43,10 +43,8 @@ else:
         if w=='N k' or w=='n k'or w== 'N K' or w=='K n':
             k = int(input("k ="))
             N = int(input("N ="))
-            if N != int("") and i == int(""):
-                while N > 0:
-                    N = N // 2
-                    i = i + 1
+            import math
+            i = (math.log2(N))
             I = k * i
             print(I)
 
@@ -76,27 +74,24 @@ else:
         else:
             if z=='i':
                 e = str(input('Даные:'))
+                s4 = list('I' 'a' 'b' 'c' )
                 if e=='I k' or e=='k I' or e=='K I' or e=='I K':
                     I = int(input("I ="))
                     k = int(input("k ="))
                     i=I//k
                     print (i)
+                if e==s4:
+                    I = int(input("I ="))
+                    a = int(input("a ="))
+                    b = int(input("b ="))
+                    c = int(input("c ="))
+                    k=a*b*c
+                    i = I//k
+                    print(i)
                 else:
-                    nN = int(input(""))
-                    if nN == int("") and i == int(""):
-                        while nN > 0:
-                            i= int()
-                            nN=nN//2
-                            i = i+1
-                            print (i)
+                    import math
+                    N = int(input("N = "))
+                    print(math.log2(N))
             else:
                 print('ошибка')
-
-
-
-
-
-                #if N!=int("") and i==int(""):
-                    #while N > 0:
-                       # N=N//2
-                        #i = i+1
+input()
