@@ -72,9 +72,16 @@ def information():
             I, N = map(int,input().split())
             return I // math.log2(N)
     elif arg == 4:
-        print("введите мощность алфавита")
-        N = int(input())
-        return math.log2(N)
+        print("через что надо найти? 1 = инф объем текста, 2 - мощность алфавитa")
+        r = int(input())
+        if r == 1:
+            print("введите объем текста, количество символов последовательно через пробел")
+            I, K = map(int,input().split())
+            return I // K
+        else:
+            print("введите мощность алфавита")
+            N = int(input())
+            return math.log2(N)
     else:
         return "неверные входные данные"
 
