@@ -2,20 +2,20 @@ def f4():
     import math 
     def otvet(a):
         print("В каких еденицах нужен ответ? (бит/байт/килобайт/мегабайт/гигабайт/терабайт)")
-    G=input()
-    if G=="бит":
-        a=str(str(a)+" бит")
-    elif G=="байт":
-        a=str(str(a/2**3)+" байт")
-    elif G=="килобайт":
-        a=str(str(a/2**13)+" килобайт")
-    elif G=="мегабайт":
-        a=str(str(a/2**23)+" мегабайт")
-    elif G=="гигабайт":
-        a=str(str(a/2**33)+" гигабайт")
-    elif G=="терабайт":
-        a=str(str(a/2**43)+" терабайт")
-    print(a)
+        G=input()
+        if G=="бит":
+            a=str(str(a)+" бит")
+        elif G=="байт":
+            a=str(str(a/2**3)+" байт")
+        elif G=="килобайт":
+            a=str(str(a/2**13)+" килобайт")
+        elif G=="мегабайт":
+            a=str(str(a/2**23)+" мегабайт")
+        elif G=="гигабайт":
+            a=str(str(a/2**33)+" гигабайт")
+        elif G=="терабайт":
+            a=str(str(a/2**43)+" терабайт")
+        print(a)
     def perevod(a,b):
         if b== "байт":
             a=a*2**3
@@ -39,7 +39,7 @@ def f4():
         if G=="0":
             N=input("N-?\n")
             K=int(input("K-?\n"))
-            I,V=float(input("I-?\n")),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            I,V=float(input("I-?\n")),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             if N=="":
                 otvet(K*perevod(I,V))
             else: 
@@ -50,15 +50,15 @@ def f4():
         if G=="3":
             K=int(input("K-?\n"))
             N=input("N-?\n")
-            i,V=input("i-?\n"),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            i,V=input("i-?\n"),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             if i=="":
                 I=it(int(N))*K
             else:
                 I=perevod(float(i),V)*K
             otvet(I)
         if G=="2":
-            I,V1=float(input("I-?\n")),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
-            i,V2=input("i-?\n"),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            I,V1=float(input("I-?\n")),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
+            i,V2=input("i-?\n"),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             N=input("N-?\n")
             if i=="":
                 K=perevod(I,V1)/it(int(N))
@@ -74,20 +74,20 @@ def f4():
         print("Что нужно найти? (",N,D,V,i,T,")")
         G=input()
         if G=="0":
-            i,b=float(input("i-?\n")),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            i,b=float(input("i-?\n")),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             print(2**perevod(i,b))
         if G=="1":
             N=input("N-?\n")
-            i,b1=input("i-?\n"),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            i,b1=input("i-?\n"),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             T=float(input("T-?\n"))
-            V,b2=float(input("V-?\n")),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            V,b2=float(input("V-?\n")),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             if i =="":
                 print(perevod(V,b2)/(it(int(N))*T))
             else:
                 print(perevod(V,b2)/(perevod(i,b1)*T))
         if G=="2":
             D=float(input("D-?\n"))
-            i,b1=input("i-?\n"),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            i,b1=input("i-?\n"),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             N=input("N-?\n")
             T=float(input("T-?\n"))
             if i =="":
@@ -97,7 +97,7 @@ def f4():
         if G=="3":
             N=input("N-?\n")
             T=float(input("T-?\n"))
-            V,b2=float(input("V-?\n")),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            V,b2=float(input("V-?\n")),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             D=float(input("D-?\n"))
             if N=="":
                 otvet(perevod(V,b2)/(D*T))
@@ -105,8 +105,8 @@ def f4():
                 otvet(it(int(N)))
         if G=="4":
             N=input("N-?\n")
-            i,b1=input("i-?\n"),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
-            V,b2=float(input("V-?\n")),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            i,b1=input("i-?\n"),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
+            V,b2=float(input("V-?\n")),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             D=float(input("D-?\n"))
             if i =="":
                 otvet(perevod(V,b2)/(perevod(i,b1)*D))
@@ -121,22 +121,22 @@ def f4():
         print("Что нужно найти? (",N,i,H,W,")")
         G=input()
         if G=="0":
-            i,b1=input("i-?\n"),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            i,b1=input("i-?\n"),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             print(2**perevod(i,b1))
         if G=="1":
-            i,b1=input("i-?\n"),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            i,b1=input("i-?\n"),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             N=input("N-?\n")
             W=int(input("W-?\n"))
-            I,b2=float(input("I-?\n")),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            I,b2=float(input("I-?\n")),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             if i=="":
                 print(perevod(I,b2)/(it(int(N))*W))
             else:
                 print(perevod(I,b2)/(perevod(i,b1)*W))
         if G=="2":
-            i,b1=input("i-?\n"),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            i,b1=input("i-?\n"),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             N=input("N-?\n")
             H=int(input("H-?\n"))
-            I,b2=float(input("I-?\n")),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            I,b2=float(input("I-?\n")),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             if i=="":
                 print(perevod(I,b2)/(it(int(N))*H))
             else:
@@ -144,7 +144,7 @@ def f4():
         if G=="3":
             N=input("N-?\n")
             W=int(input("W-?\n"))
-            I,b2=float(input("I-?\n")),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            I,b2=float(input("I-?\n")),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             N=input("N-?\n")
             if N=="":
                 otvet(perevod(I,b2)/(H*W))
@@ -154,7 +154,7 @@ def f4():
             N=input("N-?\n")
             H=int(input("H-?\n"))
             W=int(input("W-?\n"))
-            i,b1=input("i-?\n"),input("бит/байт/килобайт/мегабайт/гигабайт?\n")
+            i,b1=input("i-?\n"),input("в чём дайнные? (бит/байт/килобайт/мегабайт/гигабайт?)\n")
             if i =="":
                 otvet(W*(it(int(N))*H))
             else:
